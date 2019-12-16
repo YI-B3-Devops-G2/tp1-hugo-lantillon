@@ -26,14 +26,17 @@ github_username: HugoTysn21
 - Installer nginx
   >sudo apt-get install nginx
 - Lancer iTerm et installer vagrant 
-  puis vagrant init (cela créer un vagrantfile)
+-  vagrant init (cela créer un vagrantfile)
+ > vagrant init hashicorp/bionic64
+ - indiquer le provider a vagrant
  > vagrant up --provider=virtualbox
 - edit le vagrantfile pour lui indiquer le script bootstrap.sh
-
  >config.vm.provision :shell, path: "bootstrap.sh"
 - faire le transfert de port
  >config.vm.network :forwarded_port, guest: 80, host: 10080
-  config.vm.network :forwarded_port, guest: 22, host: 10022
-  config.vm.network :forwarded_port, guest: 443, host: 1044
+
+ >config.vm.network :forwarded_port, guest: 22, host: 10022
+
+ >config.vm.network :forwarded_port, guest: 443, host: 1044
 
 - Lancer la commande : ssh hugo@127.0.0.1 -p 22 pour vérifier la connexion
